@@ -9,7 +9,7 @@ escola = { "Aluno"      : [],
            "notas"      : [] }
 
 print("""Olá, gostaria de fazer oq agora?
-      1°Mexer na planilha""")
+      |1°Mexer na planilha |2° Abrir a planilha|""")
 
 def fodase():
     return 0
