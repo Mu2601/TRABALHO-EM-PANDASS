@@ -21,7 +21,11 @@ def BancoDeDadosEscola( ):
         
         Disciplina=input("digite o nome do Disciplina: ")
         escola["Disciplina"].append(Disciplina)
-
+        
+        for i in range(4):
+            nota=int(input(f"digite a {i +1}° nota: "))
+            escola["Notas"].append(nota)
+            
         print(escola)
         
 BancoDeDadosEscola()
