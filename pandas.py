@@ -4,13 +4,10 @@ import pandas as pd
 import os
 import pathlib
 
-escola = { "Aluno"      : [],
-           "Disciplina"   : [],
-           "notas"      : [] }
 # Funcao base.
 def BancoDeDadosEscola( ):
     escola = { "Aluno"      : [],
-               "Disciplina"   : [],
+               "Disciplina" : [],
                "Notas"      : [] }
 
     print("""Olá, gostaria de fazer oq agora?
@@ -18,10 +15,13 @@ def BancoDeDadosEscola( ):
     escolha=int(input(" "))
 
     if escolha == 1:
-        a=input("digite o nome do Aluno: ")
-        escola["Aluno"]=a
-        a=input("digite o nome do Disciplina: ")
-        escola["Disciplina"]=a
+
+        Nome=input("digite o nome do Aluno: ")
+        escola["Aluno"].append(Nome)
+        
+        Disciplina=input("digite o nome do Disciplina: ")
+        escola["Disciplina"].append(Disciplina)
+
         print(escola)
         
 BancoDeDadosEscola()
