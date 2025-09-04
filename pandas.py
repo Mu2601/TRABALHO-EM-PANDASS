@@ -8,9 +8,12 @@ import pathlib
 def BancoDeDadosEscola( ):
 
     # Variavel base.
-    escola = { "Aluno"      : [],
-               "Disciplina" : [],
-               "Notas"      : [] }
+    escola = { "Aluno"       : [],
+               "Disciplina"  : [],
+               "Notas0"      : [],
+               "Notas1"      : [],
+               "Notas2"      : [],
+               "Notas3"      : [] }
 
     sDiretorioAtual = os.path.dirname(os.path.realpath(__file__))
 
@@ -22,7 +25,7 @@ def BancoDeDadosEscola( ):
         print("""Olá, gostaria de fazer oq agora?
         |1°Mexer na planilha |2° Abrir a planilha|""")
 
-        escolha=int(input(" "))
+        escolha=int(input(""))
 
         if escolha == 1:
 
@@ -34,7 +37,7 @@ def BancoDeDadosEscola( ):
             
             for i in range(4):
                 nota=int(input(f"digite a { i + 1 }° nota: "))
-                escola["Notas"].append(nota)
+                escola[f"Notas{i}"].append(nota)
 
             db = pd.DataFrame(escola)
             print( db )
@@ -48,6 +51,9 @@ def BancoDeDadosEscola( ):
                 sNomeDoArquivo = input("")
                 sNovoArquivo = os.path.join( sDiretorioAtual, sNomeDoArquivo ) 
                 db.to_excel()
+    
+        if escolha == 2:
+            escola =
             
             
 BancoDeDadosEscola()
