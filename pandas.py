@@ -6,13 +6,22 @@ import pathlib
 
 # Funcao base.
 def BancoDeDadosEscola( ):
+
+    # Variavel base.
     escola = { "Aluno"      : [],
                "Disciplina" : [],
                "Notas"      : [] }
 
-    print("""Olá, gostaria de fazer oq agora?
-        |1°Mexer na planilha |2° Abrir a planilha|""")
+    sDiretorioAtual = os.path.dirname(os.path.realpath(__file__))
+
+    # DEBUG; qual diretorio ele esta.
+    print(f"O diretorio atual e: {sDiretorioAtual}")
+
     while True:
+
+        print("""Olá, gostaria de fazer oq agora?
+        |1°Mexer na planilha |2° Abrir a planilha|""")
+
         escolha=int(input(" "))
 
         if escolha == 1:
@@ -24,15 +33,21 @@ def BancoDeDadosEscola( ):
             escola["Disciplina"].append(Disciplina)
             
             for i in range(4):
-                nota=int(input(f"digite a {i +1}° nota: "))
+                nota=int(input(f"digite a { i + 1 }° nota: "))
                 escola["Notas"].append(nota)
 
-            print(escola)
-            print("""Gostaria de adicionar mais alguma coisa?
-                  |1°Sim |2° Não|""")
-            escoa=int(input(" "))
-            if escoa == 2:
-                break
+            db = pd.DataFrame(escola)
+            print( db )
+
+            print( "Gostaria de exportar a planilha?" )
+            print( "1 - Sim" )
+            print( "2 - Nao" )
+            exportar = int(input(""))
+            if( exportar == 1 ):
+                print("Qual sera o nome do arquivo?")
+                sNomeDoArquivo = input("")
+                sNovoArquivo = os.path.join( sDiretorioAtual, sNomeDoArquivo ) 
+                db.to_excel()
             
             
 BancoDeDadosEscola()
