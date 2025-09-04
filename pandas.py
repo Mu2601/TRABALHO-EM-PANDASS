@@ -28,7 +28,6 @@ def BancoDeDadosEscola( ):
         escolha=int(input(""))
 
         if escolha == 1:
-
             Nome=input("digite o nome do Aluno: ")
             escola["Aluno"].append(Nome)
             
@@ -53,7 +52,7 @@ def BancoDeDadosEscola( ):
                 db.to_excel()
     
         if escolha == 2:
-            escola =
+            escola = db.read_excel()
             
             
 BancoDeDadosEscola()
