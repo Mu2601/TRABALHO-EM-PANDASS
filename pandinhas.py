@@ -74,11 +74,20 @@ def BancoDeDadosEscola( ):
                 print( "Qual é o nome do arquivo?" )
                 sNomeDoArquivo = input( "" )
                 sCaminhoParaOArquivo = os.path.join( sDiretorioAtual, sNomeDoArquivo + ".xlsx" ) 
-                escola = pd.read_excel( sCaminhoParaOArquivo )
+                exArquivoLido = pd.read_excel( sCaminhoParaOArquivo )
+                pdPlanilha = pd.DataFrame(exArquivoLido)
+
+                # DEBUG; mostrando oq foi lido.
+                print(pdPlanilha)
 
             elif( iUsarDiretorioAtual == 2 ):
                 print( "Qual é o caminho do arquivo?" )
                 sCaminhoParaOArquivo = input( "" ) 
-                escola = pd.read_excel( sCaminhoParaOArquivo + ".xlsx" )
+                exArquivoLido = pd.read_excel( sCaminhoParaOArquivo + ".xlsx" )
+                pdPlanilha = pd.DataFrame(exArquivoLido)
+                
+                # DEBUG; mostrando oq foi lido.
+                print(pdPlanilha)
+            
             
 BancoDeDadosEscola()
